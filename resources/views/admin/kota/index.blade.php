@@ -21,9 +21,9 @@
                             <thead>
                                 <tr>
                                     <th>Nomor</th>
-                                    <th>Kode_Kota</th>
-                                    <th>Nama_Kota</th>
-                                    <th>Provinsi</th>
+                                    <th>Kode Kota</th>
+                                    <th>Nama Kota</th>
+                                    <th>Nama Provinsi</th>
                                     <th colspan="3">Aksi</th>
                                 </tr>
                             </thead>

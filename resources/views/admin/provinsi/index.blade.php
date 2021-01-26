@@ -20,7 +20,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Kode Provinsi</th>
-                                <th>Provinsi</th>
+                                <th>Nama Provinsi</th>
                                 <th colspan="3">Aksi</th>
                             </tr>
                             @php $no=1; @endphp
