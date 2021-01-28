@@ -23,7 +23,7 @@
                                     <th>Nomor</th>
                                     <th>Nama Rw</th>
                                     <th>Nama Desa</th>
-                                    <th colspan="3">Aksi</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -40,9 +40,9 @@
                                             @csrf
                                             @method('DELETE')
                                         <td>
-                                            <a href="{{route('rw.show',$data->id)}}" class="btn btn-info">Show</a>
-                                            <a href="{{route('rw.edit',$data->id)}}" class="btn btn-success">Edit</a>
-                                            <button type="submit" onclick="return confirm('Apakah anda yakin?');" class="btn btn-danger">Delete</button>
+                                            <a class="btn btn-info btn-sm btn-rounded " href="{{route('rw.edit',$data->id)}}"> <i class="fa fa-edit"></i></a>
+                                            <a class="btn btn-warning btn-sm btn-rounded " href="{{route('rw.show',$data->id)}}"> <i class="fa fa-eye"></i></a>
+                                            <button type="submit" onclick="return confirm('Apakah anda yakin?');" class="btn btn-danger btn-sm btn-rounded"><i class="fa fa-trash"></i></button>
                                         </td>
                                         </form>
                                     </tr>

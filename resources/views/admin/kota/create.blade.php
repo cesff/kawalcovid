@@ -14,11 +14,17 @@
                     <div class="form-group">
                         <label>Kode Kota</label>
                         <input type="text" name="kode_kota" class="form-control" required>
+                        @if ($errors->has('kode_kota'))
+                        <span class="text-danger">{{ $errors->first('kode_kota') }}</span>
+                        @endif
                     </div>
                         <div class="form-group">
                         <label>Nama Kota</label>
                         <input type="text" name="nama_kota" class="form-control" required>
                         </div>
+                        @if ($errors->has('nama_kota'))
+                        <span class="text-danger">{{ $errors->first('nama_kota') }}</span>
+                        @endif
                         <div class="form-group">
                         <label>Nama Provinsi</label>
                         <select name="id_provinsi" class="form-control">

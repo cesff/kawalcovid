@@ -6,7 +6,7 @@ use App\Models\Kasus;
 use App\Models\Rw;
 use Illuminate\Http\Request;
 
-class TrackingController extends Controller
+class KasusController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class TrackingController extends Controller
     public function index()
     {
         $kasus = Kasus::with('rw.desa.kecamatan.kota.provinsi')->get();
-        return view('admin.kasus.index',compact('kasus','title'));
+        return view('admin.kasus.index',compact('kasus'));
     }
 
     /**
@@ -67,10 +67,10 @@ class TrackingController extends Controller
      */
     public function edit($id)
     {
-        $title = 'Edit Data';
         $kasus = Kasus::findOrFail($id);
         $rw = Rw::all();
-        return view('admin.kasus.edit',compact('rw','title','kasus'));
+        $selected = $kasus->rw->pluck('id')->toArray();
+        return view('admin.kasus.edit',compact('kasus','rw','selected'));
     }
 
     /**
@@ -83,13 +83,13 @@ class TrackingController extends Controller
     public function update(Request $request, $id)
     {
         $kasus = Kasus::findOrFail($id);
-        $kasus->jumlah_positif = $request->jumlah_positif;
-        $kasus->jumlah_sembuh = $request->jumlah_sembuh;
-        $kasus->jumlah_meninggal = $request->jumlah_meninggal;
+        $kasus->positif = $request->positif;
+        $kasus->sembuh = $request->sembuh;
+        $kasus->meninggal = $request->meninggal;
         $kasus->tanggal = $request->tanggal;
         $kasus->id_rw = $request->id_rw;
         $kasus ->save();
-        return redirect()->route('rw.index')->with('sukses','Data Berhasil Di Update');
+        return redirect()->route('kasus.index')->with('sukses','Data Berhasil Di Update');
     }
 
     /**
@@ -100,12 +100,8 @@ class TrackingController extends Controller
      */
     public function destroy($id)
     {
-        try{
-            $kasus = Kasus::findOrFail($id)->delete();
-            \Session::flash('sukses','Data Berhasil Di Hapus');
-        }catch(\Exception $e){
-            \Session::flash('gagal',$e->getMessage());
-        }
-        return redirect()->route("kasus.index");
+        $kasus = Kasus::findOrFail($id);
+        $kasus->delete();
+        return redirect()->route('kasus.index');
     }
 }

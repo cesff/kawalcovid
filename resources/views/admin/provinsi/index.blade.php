@@ -1,27 +1,29 @@
 @extends('layouts.master')
 @section('content')
-    <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header"><br>
-                        Data Provinsi
-                        <a href="{{route('provinsi.create')}}" class="btn btn-primary float-right">
-                            Tambah Data</a>
-                    </div>
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header"><br>
+                    Daftar Kota
+                <a href="{{route('provinsi.create')}}" class="btn btn-primary float-right">
+                Tambah Data</a>
+                </div>
+
                 <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
                     <div class="table-responsive">
                         <table class="table">
-                            <tr>
+                            <thead>
+                                <tr>
                                 <th>No</th>
                                 <th>Kode Provinsi</th>
                                 <th>Nama Provinsi</th>
-                                <th colspan="3">Aksi</th>
+                                <th>Action</th>
                             </tr>
                             @php $no=1; @endphp
                             @foreach ($provinsi as $data)
@@ -33,9 +35,9 @@
                                     <td>{{$data->kode_provinsi}}</td>
                                     <td>{{$data->nama_provinsi}}</td>
                                     <td>
-                                        <a href="{{route('provinsi.show',$data->id)}}" class="btn btn-info">Show</a>
-                                        <a href="{{route('provinsi.edit',$data->id)}}" class="btn btn-success">Edit</a>
-                                        <button type="submit" onclick="return confirm('Apakah anda yakin?');" class="btn btn-danger">Delete</button>
+                                        <a class="btn btn-info btn-sm btn-rounded " href="{{route('provinsi.edit',$data->id)}}"> <i class="fa fa-edit"></i></a>
+                                            <a class="btn btn-warning btn-sm btn-rounded " href="{{route('provinsi.show',$data->id)}}"> <i class="fa fa-eye"></i></a>
+                                            <button type="submit" onclick="return confirm('Apakah anda yakin?');" class="btn btn-danger btn-sm btn-rounded"><i class="fa fa-trash"></i></button>
                                     </td>
                                 </tr>
                             </form>

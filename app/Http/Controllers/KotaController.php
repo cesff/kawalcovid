@@ -39,6 +39,10 @@ class KotaController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'kode_kota' => 'required|unique:kotas|max:255',
+            'nama_kota' => 'required|unique:kotas|max:255',
+        ]);
         $kota = new Kota();
         $kota->kode_kota = $request->kode_kota;
         $kota->nama_kota = $request->nama_kota;

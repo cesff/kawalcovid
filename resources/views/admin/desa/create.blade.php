@@ -14,6 +14,9 @@
                         <div class="form-group">
                         <label>Nama Desa</label>
                         <input type="text" name="nama_desa" class="form-control" required>
+                        @if ($errors->has('nama_desa'))
+                        <span class="text-danger">{{ $errors->first('nama_desa') }}</span>
+                        @endif
                         </div>
                         <div class="form-group">
                         <label>Nama Kecamatan</label>
