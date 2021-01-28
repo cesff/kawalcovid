@@ -23,9 +23,9 @@
                                             <th>No</th>
                                             <th >Lokasi</th>
                                             <th>RW</th>
-                                            <th>Positif</th>
-                                            <th>Sembuh</th>
-                                            <th>Meninggal</th>
+                                            <th>Jumlah Positif</th>
+                                            <th>Jumlah Sembuh</th>
+                                            <th>Jumlah Meninggal</th>
                                             <th>Tanggal</th>
                                             <th>Action</th>
                                         </tr>

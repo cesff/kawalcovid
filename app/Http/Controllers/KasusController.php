@@ -54,9 +54,11 @@ class KasusController extends Controller
      * @param  \App\Models\Kasus  $kasus
      * @return \Illuminate\Http\Response
      */
-    public function show(Kasus $kasus)
+    public function show($id)
     {
-        //
+        $kasus = Kasus::findOrFail($id);
+        $rw = Rw::all();
+        return view('admin.kasus.show',compact('kasus','rw'));
     }
 
     /**
