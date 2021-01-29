@@ -11,7 +11,7 @@
         </div>
         <div class="col-md-6">
         <label for="positif">Jumlah Positif</label>
-        <input type="text" class="form-control" name="positif" required>
+        <input type="text" class="form-control" value="@if (isset($kasus1)){{$kasus1->positif}} @endif" name="positif" required>
         </div>
     </div>
 
@@ -29,7 +29,7 @@
             </div>
             <div class="col-md-6">
                 <label for="sembuh">Jumlah Sembuh</label>
-                <input type="text" class="form-control" name="sembuh" required>
+                <input type="text" class="form-control" value="@if (isset($kasus1)){{$kasus1->sembuh}} @endif" name="sembuh" required>
             </div>
         </div>
         <div class="form-group row ">
@@ -46,7 +46,7 @@
             </div>
             <div class="col-md-6">
                 <label for="meninggal">Jumlah Meninggal</label>
-                <input type="text" class="form-control" name="meninggal" required>
+                <input type="text" class="form-control" value="@if (isset($kasus1)){{$kasus1->meninggal}} @endif" name="meninggal" required>
             </div>
         </div>
         <div class="form-group row ">
@@ -63,7 +63,7 @@
             </div>
             <div class="col-md-6">
                 <label for="tanggal">Tanggal</label>
-                <input type="date" class="form-control" name="tanggal" required>
+                <input type="date" class="form-control" value="@if (isset($kasus1)){{$kasus1->tanggal}} @endif" name="tanggal" required>
             </div>
         </div>
         <div class="form-group row ">
