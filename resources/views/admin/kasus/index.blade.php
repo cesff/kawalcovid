@@ -23,9 +23,10 @@
                                             <th>No</th>
                                             <th >Lokasi</th>
                                             <th>RW</th>
-                                            <th>Jumlah Positif</th>
-                                            <th>Jumlah Sembuh</th>
-                                            <th>Jumlah Meninggal</th>
+                                            <th>Total Reaktif</th>
+                                            <th>Total Positif</th>
+                                            <th>Total Sembuh</th>
+                                            <th>Total Meninggal</th>
                                             <th>Tanggal</th>
                                             <th>Action</th>
                                         </tr>
@@ -38,10 +39,11 @@
                                         <tr>
                                             <th scope="row">{{$no++}}</th>
                                             <td>Provinsi : {{$data->rw->desa->kecamatan->kota->provinsi->nama_provinsi}}<br>
-                                            Kota : {{$data->rw->desa->kecamatan->kota->nama_kota}}<br>
+                                            Kota / Kabupaten : {{$data->rw->desa->kecamatan->kota->nama_kota}}<br>
                                             Kecamatan : {{$data->rw->desa->kecamatan->nama_kecamatan}}<br>
-                                            Desa : {{$data->rw->desa->nama_desa}}</td>
+                                            Kota / Desa : {{$data->rw->desa->nama_desa}}</td>
                                             <td>{{$data->rw->nama_rw}}</td>
+                                            <td>{{$data->reaktif}}</td>
                                             <td>{{$data->positif}}</td>
                                             <td>{{$data->sembuh}}</td>
                                             <td>{{$data->meninggal}}</td>

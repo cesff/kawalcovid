@@ -4,7 +4,7 @@
       <!-- Brand -->
       <div class="sidenav-header  align-items-center">
         <a class="navbar-brand" href="{{asset('javascript:void(0)')}}">
-            <span class="nav-link-text text-blue" >KAWAL COVID</span>
+            <span class="nav-link-text-default" >TRACKING COVID</span>
         </a>
       </div>
       <div class="navbar-inner">
@@ -14,43 +14,50 @@
           <ul class="navbar-nav">
             <li class="nav-item">
               <a class="nav-link active" href="{{url('admin')}}">
-                <i class="ni ni-pin-3 text-default"></i>
+                <i class="fa fa-home text-default"></i>
                 <span class="nav-link-text">Dashboard</span>
               </a>
             </li>
+            </ul>
+            <br>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <div class="nav-link">
+                    <span class="nav-link-text"><b>Master Data</b></span>
+                </div>
             <li class="nav-item">
               <a class="nav-link" href="{{url('admin/provinsi')}}">
-                <i class="ni ni-pin-3 text-red"></i>
+                <i class="fa fa-building text-default"></i>
                 <span class="nav-link-text">Provinsi</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{url('admin/kota')}}">
-                <i class="ni ni-pin-3 text-orange"></i>
-                <span class="nav-link-text">Kota</span>
+                <i class="fa fa-building-o text-default"></i>
+                <span class="nav-link-text">Kota / Kabupaten</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{url('admin/kecamatan')}}">
-                <i class="ni ni-pin-3 text-yellow"></i>
+                <i class="fa fa-building text-default"></i>
                 <span class="nav-link-text">Kecamatan</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{url('admin/desa')}}">
-                <i class="ni ni-pin-3 text-blue"></i>
-                <span class="nav-link-text">Desa</span>
+                <i class="fa fa-building-o text-default"></i>
+                <span class="nav-link-text">Kelurahan / Desa</span>
               </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{url('admin/rw')}}">
-                  <i class="ni ni-pin-3 text-green"></i>
+                  <i class="fa fa-building text-default"></i>
                   <span class="nav-link-text">RW</span>
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{url('admin/kasus')}}">
-                  <i class="ni ni-pin-3 text-purple"></i>
+                  <i class="fa fa-circle text-default"></i>
                   <span class="nav-link-text">Kasus</span>
                 </a>
               </li>
