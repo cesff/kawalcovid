@@ -4,39 +4,46 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use DB;
 use App\Models\Provinsi;
-use App\Models\Kota;
-use App\Models\Kecamatan;
-use App\Models\Desa;
-use App\Models\Rw;
+use App\Models\Kasus;
+
 
 class ApiController extends Controller
 {
-    public function provinsi()
-    {
-        $provinsi = Provinsi::latest()->get();
+    public function provinsi(){
+        $provinsi = DB::table('provinsis')->select('provinsis.kode_provinsi','provinsis.nama_provinsi', DB::raw('SUM(kasuses.positif) as positif'),
+        DB::raw('SUM(kasuses.sembuh) as sembuh'),DB::raw('SUM(kasuses.meninggal) as meninggal'))
+        ->join('kotas','provinsis.id','=','kotas.id_provinsi')
+        ->join('kecamatans','kotas.id','=','kecamatans.id_kota')
+        ->join('desas','kecamatans.id','=','desas.id_kecamatan')
+        ->join('rws','desas.id','=','rws.id_desa')
+        ->join('kasuses','rws.id','=','kasuses.id_rw')
+        ->groupBy('provinsis.id','tanggal')
+        ->get();
+        $positif = DB::table('rws')->select('kasuses.positif','kasuses.reaktif'.'kasuses.sembuh','kasuses.meninggal')->join('kasuses','rws.id','=','kasuses.id_rw')->sum('kasuses.positif');
+            $reaktif = DB::table('rws')->select('kasuses.positif','kasuses.reaktif'.'kasuses.sembuh','kasuses.meninggal')->join('kasuses','rws.id','=','kasuses.id_rw')->sum('kasuses.reaktif');
+            $sembuh = DB::table('rws')->select('kasuses.positif','kasuses.reaktif'.'kasuses.sembuh','kasuses.meninggal')->join('kasuses','rws.id','=','kasuses.id_rw')->sum('kasuses.sembuh');
+            $meninggal = DB::table('rws')->select('kasuses.positif','kasuses.reaktif'.'kasuses.sembuh','kasuses.meninggal')->join('kasuses','rws.id','=','kasuses.id_rw')->sum('kasuses.meninggal');
+        // dd($provinsi);
         return response([
             'success' => true,
-            'data ' => "",
-            'hari ini' => $provinsi
-        ], 200);
+            'data' => [
+                        'Hari Ini' => $provinsi
+                        ],
+            'Total' =>[
+                        'Jumlah Reaktif' => $reaktif,
+                        'Jumlah Positif' => $positif,
+                        'Jumlah Sembuh' => $sembuh,
+                        'Jumlah Meninggal' => $meninggal,
+                    ],
+        ]);
+        // $data = [
+        //     'status' => 200,
+        //     'data' => $provinsi,
+        //     'message' => 'Berhasil'
+        // ];
+        // return response()->json($data);
     }
-    public function show($id)
-    {
-        $provinsi = Provinsi::whereId($id)->first();
 
-        if ($provinsi) {
-            return response()->json([
-                'success' => true,
-                'message' => 'Detail Post!',
-                'data'    => $provinsi
-            ], 200);
-        } else {
-            return response()->json([
-                'success' => false,
-                'message' => 'Post Tidak Ditemukan!',
-                'data'    => ''
-            ], 404);
-        }
-    }
 }
