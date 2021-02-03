@@ -1,13 +1,10 @@
 @extends('layouts.master')
-
 @section('content')
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header"><br>
-                Show
-                </div>
+                <div class="card-header"><br>Show</div>
                 <div class="card-body">
                     <div class="form-group row ">
                         <div class="col-md-6">

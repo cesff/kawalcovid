@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\API\ApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,6 @@ Route::post('/post/store', [PostController::class, 'store']);
 Route::get('/post/{id}',[PostController::class, 'show']);
 Route::put('/post/update/{id}',[PostController::class ,'update']);
 Route::delete('/post/{id}',[PostController::class ,'destroy']);
+
+Route::get('/provinsi', [ApiController::class, 'provinsi']);
+Route::get('/provinsi/{id}',[ApiController::class, 'show']);

@@ -4,10 +4,8 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header"><br>
-                    Daftar Kasus
-                <a href="{{route('kasus.create')}}" class="btn btn-primary float-right">
-                Tambah Data</a>
+                <div class="card-header"><br>Daftar Kasus
+                    <a href="{{route('kasus.create')}}" class="btn btn-primary float-right"> Tambah Data</a>
                 </div>
                 <div class="card-body">
                     @if (session('status'))

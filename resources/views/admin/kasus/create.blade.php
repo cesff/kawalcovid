@@ -6,7 +6,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                <form action="{{route('kasus.store')}}" class="form-horizontal m-t-30" method="post">
+                    <form action="{{route('kasus.store')}}" class="form-horizontal m-t-30" method="post">
                 @csrf
                 @livewireScripts
                 @livewire('livewire')
