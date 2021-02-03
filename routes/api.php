@@ -26,5 +26,15 @@ Route::get('/post/{id}',[PostController::class, 'show']);
 Route::put('/post/update/{id}',[PostController::class ,'update']);
 Route::delete('/post/{id}',[PostController::class ,'destroy']);
 
+Route::get('/indonesia', [ApiController::class, 'indonesia']);
+
 Route::get('/provinsi', [ApiController::class, 'provinsi']);
-Route::get('/provinsi/{id}',[ApiController::class, 'show']);
+Route::get('/provinsi/{id}', [ApiController::class, 'pw']);
+
+Route::get('/rw', [ApiController::class, 'rw']);
+
+Route::get('/reaktif', [ApiController::class, 'reaktif']);
+Route::get('/positif', [ApiController::class, 'positif']);
+Route::get('/sembuh', [ApiController::class, 'sembuh']);
+Route::get('/meninggal', [ApiController::class, 'meninggal']);
+
