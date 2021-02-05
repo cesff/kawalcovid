@@ -7,33 +7,41 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use DB;
 use Illuminate\Support\Facades\Http;
-use App\Models\Provinsi;
-use App\Models\Kasus;
+
 
 
 
 class ApiController extends Controller
 {
+    public $data = [];
     public function global()
     {
-        $response = Http::get('https://api.kawalcorona.com/global');
-            $data =$response->json();
-            return $data;
-            return response([
-                'Message' => ' Berhasil!',
-            ]);
+        $response = Http::get('https://api.kawalcorona.com')->json();
+        foreach ($response as $data => $val) {
+        $raw = $val['attributes'];
+        $res = [
+            'Negara' => $raw['Country_Region'],
+            'Positif' => $raw['Confirmed'],
+            'Sembuh' => $raw['Recovered'],
+            'Meninggal' => $raw['Deaths']
+        ];
+        array_push($this->data, $res);
+    }
+    $data = [
+        'Succes' => true,
+        'Data' => $this->data,
+        'Message' => 'Berhasil'
+    ];
+    return response()->json($data,200);
     }
     public function Indonesia(){
         $positif = DB::table('kasuses')
-                        ->select('kasuses.positif')
                         ->sum('kasuses.positif');
 
         $sembuh = DB::table('kasuses')
-                        ->select('kasuses.sembuh')
                         ->sum('kasuses.sembuh');
 
         $meninggal = DB::table('kasuses')
-                        ->select('kasuses.meninggal')
                         ->sum('kasuses.meninggal');
 
         return response([
@@ -92,7 +100,7 @@ class ApiController extends Controller
                         'Jumlah Sembuh' => $sembuh,
                         'Jumlah Meninggal' => $meninggal,
                     ],
-                    'essage' => ' Berhasil!',
+                    'Message' => ' Berhasil!',
                 ],
             ],
         ]);
@@ -417,7 +425,8 @@ class ApiController extends Controller
     }
 
         public function positif(){
-        $positif = DB::table('kasuses')->select('kasuses.positif')->sum('kasuses.positif');
+        $positif = DB::table('kasuses')
+                            ->sum('kasuses.positif');
         return response([
             'Success' => true,
             'Data' => [
@@ -429,7 +438,8 @@ class ApiController extends Controller
         ]);
     }
     public function sembuh(){
-        $sembuh = DB::table('kasuses')->select('kasuses.sembuh')->sum('kasuses.sembuh');
+        $sembuh = DB::table('kasuses')
+                        ->sum('kasuses.sembuh');
         return response([
             'Success' => true,
             'Data' => [
@@ -441,7 +451,8 @@ class ApiController extends Controller
         ]);
     }
     public function meninggal(){
-        $meninggal = DB::table('kasuses')->select('kasuses.meninggal')->sum('kasuses.meninggal');
+        $meninggal = DB::table('kasuses')
+                            ->sum('kasuses.meninggal');
         return response([
             'Success' => true,
             'Data' => [
