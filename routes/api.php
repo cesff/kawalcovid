@@ -19,9 +19,8 @@ use App\Http\Controllers\API\ApiController;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-Route::get('/indonesia', [ApiController::class, 'indonesia']);
-
+Route::get('/global', [ApiController::class, 'global']);  
+Route::get('/indonesia', [ApiController::class, 'indonesia']);  
 Route::get('/provinsi', [ApiController::class, 'provinsi']);
 Route::get('/provinsi/{id}', [ApiController::class, 'provinsis']);
 Route::get('/kota', [ApiController::class, 'kota']);

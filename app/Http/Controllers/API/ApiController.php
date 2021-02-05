@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use DB;
+use Illuminate\Support\Facades\Http;
 use App\Models\Provinsi;
 use App\Models\Kasus;
 
@@ -13,6 +14,15 @@ use App\Models\Kasus;
 
 class ApiController extends Controller
 {
+    public function global()
+    {
+        $response = Http::get('https://api.kawalcorona.com/global');
+            $data =$response->json();
+            return $data;
+            return response([
+                'Message' => ' Berhasil!',
+            ]);
+    }
     public function Indonesia(){
         $positif = DB::table('kasuses')
                         ->select('kasuses.positif')
