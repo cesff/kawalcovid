@@ -20,19 +20,18 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/post', [PostController::class, 'index']);
-Route::post('/post/store', [PostController::class, 'store']);
-Route::get('/post/{id}',[PostController::class, 'show']);
-Route::put('/post/update/{id}',[PostController::class ,'update']);
-Route::delete('/post/{id}',[PostController::class ,'destroy']);
-
 Route::get('/indonesia', [ApiController::class, 'indonesia']);
 
 Route::get('/provinsi', [ApiController::class, 'provinsi']);
-Route::get('/provinsi/{id}', [ApiController::class, 'pw']);
-
+Route::get('/provinsi/{id}', [ApiController::class, 'provinsis']);
+Route::get('/kota', [ApiController::class, 'kota']);
+Route::get('/kota/{id}', [ApiController::class, 'kotas']);
+Route::get('/kecamatan', [ApiController::class, 'kecamatan']);
+Route::get('/kecamatan/{id}', [ApiController::class, 'kecamatans']);
+Route::get('/desa', [ApiController::class, 'desa']);
+Route::get('/desa/{id}', [ApiController::class, 'desas']);
 Route::get('/rw', [ApiController::class, 'rw']);
-
+Route::get('/rw/{id}', [ApiController::class, 'rws']);
 Route::get('/reaktif', [ApiController::class, 'reaktif']);
 Route::get('/positif', [ApiController::class, 'positif']);
 Route::get('/sembuh', [ApiController::class, 'sembuh']);
