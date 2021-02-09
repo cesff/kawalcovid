@@ -1,13 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
+//Backend
 use App\Http\Controllers\ProvinsiController;
 use App\Http\Controllers\KotaController;
 use App\Http\Controllers\KecamatanController;
 use App\Http\Controllers\DesaController;
 use App\Http\Controllers\RwController;
 use App\Http\Controllers\KasusController;
-use App\Http\Controllers\PostController;
+
+//Frontrend
+use App\Http\Controllers\FrontendController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,7 +23,7 @@ use App\Http\Controllers\PostController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
@@ -31,11 +35,15 @@ Route::group(['prefix' => 'admin', 'middleware'=>['auth']], function () {
     Route::get('/', function () {
         return view('admin.index');
     });
+    //Backend
    Route::resource('provinsi',ProvinsiController::class);
    Route::resource('kota',KotaController::class);
    Route::resource('kecamatan',KecamatanController::class);
    Route::resource('desa',DesaController::class);
    Route::resource('rw',RwController::class);
    Route::resource('kasus',KasusController::class);
-   Route::resource('posts',PostController::class);
+
 });
+
+ //Frontend
+ Route::resource('/',FrontendController::class);

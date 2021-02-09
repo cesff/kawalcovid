@@ -80,7 +80,7 @@
             </div>
             <div class="col-md-6">
                 <label for="tanggal">Tanggal</label>
-                <input type="date" name="tanggal"  class="form-control" value="@if (isset($kasus1)){{$kasus1->tanggal}} @endif" required>
+                <input type="date" class="form-control" value="@if (isset($kasus1)){{$kasus1->tanggal}} @endif" name="tanggal" required>
             </div>
         </div>
 </div>
