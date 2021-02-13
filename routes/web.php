@@ -10,7 +10,7 @@ use App\Http\Controllers\DesaController;
 use App\Http\Controllers\RwController;
 use App\Http\Controllers\KasusController;
 
-//Frontrend
+//Frontend
 use App\Http\Controllers\FrontendController;
 /*
 |--------------------------------------------------------------------------
