@@ -87,7 +87,7 @@
                                                         <p class="mb-0 number-font"><?php echo $semglobal['value'] ?></p>
                                                         <p class="text-white mb-0">ORANG</p>
                                                     </div>
-                                                    <div class="ml-auto"> <img src="{{asset('assets/img/happy-Ipm.png')}}" width="100" height="100"> </div>
+                                                    <div class="ml-auto"> <img src="{{asset('assets/img/happy-ipM.png')}}" width="100" height="100"> </div>
                                                 </div>
                                             </div>
                                         </div>
