@@ -15,8 +15,8 @@
         <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  {{-- <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet"> --}}
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -45,9 +45,9 @@
     <nav class="nav-menu d-none d-lg-block">
       <ul>
         <li><a href="{{route('index')}}">Home</a></li>
-        <li><a href="#about">Data Global</a></li>
-        <li><a href="#services">Data Indonesia</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a  href="#global">Data Global</a></li>
+        <li><a href="#indo">Data Indonesia</a></li>
+        <li><a  href="#galery">Galery</a></li>
 
       </ul>
     </nav><!-- .nav-menu -->
@@ -70,7 +70,7 @@
                                             <div class="d-flex">
                                                 <div class="text-white">
                                                     <p class="text-white mb-0">TOTAL POSITIF</p>
-                                                    <h2 class="mb-0 number-font"><?php echo $posglobal['value'] ?></h2>
+                                                    <p class="mb-0 number-font"><?php echo $posglobal['value'] ?></p>
                                                     <p class="text-white mb-0">ORANG</p>
                                                 </div>
                                                 <div class="ml-auto"> <img src="{{asset('assets/img/sad-u6e.png')}}" width="100" height="100"> </div>
@@ -84,7 +84,7 @@
                                                 <div class="d-flex">
                                                     <div class="text-white">
                                                         <p class="text-white mb-0">TOTAL SEMBUH</p>
-                                                        <h2 class="mb-0 number-font"><?php echo $semglobal['value'] ?></h2>
+                                                        <p class="mb-0 number-font"><?php echo $semglobal['value'] ?></p>
                                                         <p class="text-white mb-0">ORANG</p>
                                                     </div>
                                                     <div class="ml-auto"> <img src="{{asset('assets/img/happy-Ipm.png')}}" width="100" height="100"> </div>
@@ -98,7 +98,7 @@
                                                 <div class="d-flex">
                                                     <div class="text-white">
                                                         <p class="text-white mb-0">TOTAL MENINGGAL</p>
-                                                        <h2 class="mb-0 number-font"><?php echo $menglobal['value'] ?></h2>
+                                                        <p class="mb-0 number-font"><?php echo $menglobal['value'] ?></p>
                                                         <p class="text-white mb-0">ORANG</p>
                                                     </div>
                                                     <div class="ml-auto"> <img src="{{asset('assets/img/emoji-LWx.png')}}" width="100" height="100"> </div>
@@ -111,8 +111,8 @@
                                             <div class="card-body">
                                                 <div class="d-flex">
                                                     <div class="text-white">
-                                                        <h2 class="mb-0 number-font">INDONESIA</h2>
-                                                        <p class="text-white mb-0"><b>{{$positif}}</b> POSITIF, <b>{{$sembuh}}</b> SEMBUH, <b>{{$meninggal}}</b> MENINGGAL</p>
+                                                        <p class="text-white mb-0">INDONESIA</p>
+                                                        <p class="mb-0 number-font">{{$positif}} POSITIF, {{$sembuh}} SEMBUH,{{$meninggal}} MENINGGAL</p>
                                                     </div>
                                                     
                                                     <div class="ml-auto"> <img src="{{asset('assets/img/indonesia-PZq.png')}}" width="100" height="100"></div>
@@ -126,11 +126,12 @@
                                   </div>
                         </div>
                         <br><br>
-                        <div class="card mb-4" id="dg">
+                        <div class="card mb-4" id="global">
                             <div class="card-header">
                                 Data Global Coronavirus
                             </div>
                             <div class="card-body">
+                              <div style="height:600px;overflow:auto;margin-right:15px;">
                                 <div class="table-responsive">
                                     <table class="table table-bordered" width="100%" cellspacing="0">
                                         <thead>
@@ -158,13 +159,15 @@
                                         </tbody>
                                     </table>
                                 </div>
+                              </div>
                             </div>
                         </div>
                         <div class="card mb-4">
-                            <div class="card-header">
+                            <div class="card-header" id="indo">
                                     Data Coronavirus Berdasarkan Provinsi di Negara Indonesia
                             </div>
                             <div class="card-body">
+                              <div style="height:600px;overflow:auto;margin-right:15px;">
                                 <div class="table-responsive">
                                     <table class="table table-bordered" width="100%" cellspacing="0">
                                         <thead>
@@ -193,12 +196,10 @@
                                 </div>
                             </div>
                         </div>
+                        </div>
                     </div>
-                     <!-- ======= Gallery Section ======= -->
-    <section id="gallery" class="gallery">
-        <div class="container">
-  
-          <div class="section-title">
+     
+          <div class="section-title" id="galery">
             <h2>Gallery</h2>
          </div>
         </div>
@@ -273,7 +274,6 @@
           </div>
   
         </div>
-      </section><!-- End Gallery Section -->
   
                 </main>
                 <footer id="footer">
